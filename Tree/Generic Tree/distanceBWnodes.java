@@ -21,10 +21,27 @@
  
  
  
+ public static ArrayList<Integer> nodeToRootPath(Node node, int data){
+    // write your code here
+    if(node.data==data){
+        ArrayList<Integer> res=new ArrayList<>();
+        res.add(node.data);
+        return res;
+    }
+    for(Node child: node.children){
+        ArrayList<Integer> path=nodeToRootPath(child,data);
+        if(path.size()>0){
+            path.add(node.data);
+            return path;
+        }
+    }
+    ArrayList<Integer> res=new ArrayList<>();
+        return res;
+ }
  
  public static int distanceBetweenNodes(Node node, int d1, int d2){
     // write your code here
-      ArrayList<Integer> p1 = nodeToRootPath(node, d1);
+    ArrayList<Integer> p1 = nodeToRootPath(node, d1);
     ArrayList<Integer> p2 = nodeToRootPath(node, d2);
 
     int i = p1.size() - 1;
