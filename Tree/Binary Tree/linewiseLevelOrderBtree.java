@@ -40,3 +40,79 @@
         }
     }
   }
+
+
+
+
+
+
+
+
+
+
+  //Approch 2 using count
+   
+   
+   
+   
+   
+   public static void levelOrder(Node node) {
+    // write your code here
+    Queue<Node> mq=new ArrayDeque<>();
+    mq.add(node);
+    int count=1;
+    while(mq.size()>0){
+        Node temp=mq.remove();
+        count--;
+        System.out.print(temp.data+" ");
+        if(temp.left!=null){
+            mq.add(temp.left);
+        }
+        if(temp.right!=null){
+            mq.add(temp.right);
+        }
+        if(count==0){
+            System.out.println();
+            count=mq.size();
+        }
+    }
+  }
+
+
+
+
+
+//Approch 3
+
+
+
+
+    public static class Pairs{
+        Node node;
+        int state;
+        Pairs(Node node,int state){
+            this.node=node;
+            this.state=state;
+        }
+    }
+  public static void levelOrder(Node node) {
+    // write your code here
+    int level=1;
+    Queue<Pairs> mq=new ArrayDeque<>();
+    mq.add(new Pairs(node,1));
+    while(mq.size()>0){
+        Pairs temp=mq.remove();
+        int currLevel=temp.state;
+        if(currLevel!=level){
+            System.out.println();
+            level=currLevel;
+        }
+        System.out.print(temp.node.data+" ");
+        if(temp.node.left!=null){
+            mq.add(new Pairs(temp.node.left,currLevel+1));
+        }
+        if(temp.node.right!=null){
+            mq.add(new Pairs(temp.node.right,currLevel+1));
+        }
+    }
+  }
