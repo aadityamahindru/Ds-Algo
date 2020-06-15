@@ -16,10 +16,6 @@
 // 30
 // 70
 
-
-
-
-
   public static void printSingleChildNodes(Node node, Node parent){
     // write your code here
     if(node==null){
