@@ -56,7 +56,6 @@ public class Main {
       // write your code here
    }
    public static void connectedGraph(ArrayList<Edge> graph[]){
-      ArrayList<ArrayList<Integer>> comps = new ArrayList<>();
       boolean visited[]=new boolean[graph.length];
         gcc(graph,0,visited);
         for(int i=0;i<graph.length;i++){
